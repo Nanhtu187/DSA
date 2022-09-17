@@ -1,9 +1,10 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-
+import java.util.Arrays;
 
 public class ThreeSum {
     public static int count(int[] a) {
+        Arrays.sort(a);
         int cnt = 0;
         int n = a.length;
         for(int i = 0; i < n; ++ i) {
