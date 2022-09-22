@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
 
@@ -52,14 +49,14 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        if (compareTo(that) == 0) {
-            return -Integer.MAX_VALUE;
+        if (this.y == that.y && this.x == that.x) {
+            return Double.NEGATIVE_INFINITY;
         }
         if (this.y == that.y) {
-            return 0;
+            return +0.0;
         }
         if (this.x == that.x) {
-            return Integer.MAX_VALUE;
+            return Double.POSITIVE_INFINITY;
         }
         return ((double) that.y - this.y) / (that.x - this.x);
     }
@@ -86,7 +83,7 @@ public class Point implements Comparable<Point> {
         return -1;
     }
 
-    public class Compare implements Comparator<Point> {
+    private class Compare implements Comparator<Point> {
         private Point current = new Point(x, y);
         @Override
         public int compare(Point o1, Point o2) {
@@ -125,8 +122,5 @@ public class Point implements Comparable<Point> {
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
-        Point root = new Point(1, 2);
-        Point a = new Point(1, 2);
-        System.out.println(root.slopeOrder().toString());
     }
 }
